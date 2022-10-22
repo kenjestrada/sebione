@@ -54,14 +54,6 @@ class CRUDController extends Controller
 
     public function createDepartment(Request $request){
 
-        //departments from mysql table>child table
-        $request -> validate([
-            'dept_code' => 'required|unique:departments,dept_code',
-            'dept_name' => 'required|unique:departments,dept_name',
-            'dept_email' => 'unique:departments,dept_email',
-        ]
-        );
-
         $department = new Departments;
         $department->dept_code = $request->input('dept_code');
         $department->dept_name = $request->input('dept_name');

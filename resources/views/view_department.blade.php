@@ -8,32 +8,32 @@
                     <tr>
                         <th>Department ID</th>
                         <!-- return view controller/model -->
-                        <td>{{  }}</td>
+                        <td>{{ $department['id'] }}</td>
                     </tr>
                     <tr>
                         <th>Department Code</th>
                         <!-- return view controller/model -->
-                        <td>{{  }}</td>
+                        <td>{{ $department['dept_code'] }}</td>
                     </tr>
                     <tr>
                         <th>Department Name</th>
                         <!-- return view controller/model -->
-                        <td>{{  }}</td>
+                        <td>{{ $department['dept_name'] }}</td>
                     </tr>
                     <tr>
                         <th>Department Contact Number</th>
                         <!-- return view controller/model -->
-                        <td>{{  }}</td>
+                        <td>{{ $department['dept_contactNo'] }}</td>
                     </tr>
                     <tr>
                         <th>Department Email</th>
                         <!-- return view controller/model -->
-                        <td>{{  }}</td>
+                        <td>{{ $department['dept_email'] }}</td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                        <a href="" class="btn btn-warning btn-md ">Edit</a>
-                        <a href="" class="btn btn-danger btn-md">Delete</a>
+                        <a href="/edit/department/{{ $department['id'] }}" class="btn btn-warning btn-md ">Edit</a>
+                        <a href="/delete/department/{{ $department['id'] }}" class="btn btn-danger btn-md">Delete</a>
                         </td>
                     </tr>
                 </table>
