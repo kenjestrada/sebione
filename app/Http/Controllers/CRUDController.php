@@ -25,6 +25,17 @@ class CRUDController extends Controller
 
     public function createEmployee(Request $request){
         $departmentName = Departments::all();
+
+        $request -> validate([
+            'emp_fname' => 'required',
+            'emp_lname' => 'required',
+            'dept_id' => 'required',
+            'emp_email' => 'email:rfc,dns',
+            'emp_contactNo'=> 'numeric|min:11',
+            'emp_pic' => ['image','mimes:jpg,png,jpeg,gif','max:2048','dimensions:min_width=100,min_height=100,max_width=100,max_height=100'],
+        ]
+        );
+
         // SYNTAX
         // $variablename->model fillablename = $request->input('input name in blade file');
         $employee = new Employees;
@@ -53,6 +64,14 @@ class CRUDController extends Controller
     }
 
     public function createDepartment(Request $request){
+
+        //departments from mysql table>child table
+        $request -> validate([
+            'dept_code' => 'required|unique:departments,dept_code',
+            'dept_name' => 'required|unique:departments,dept_name',
+            'dept_email' => 'unique:departments,dept_email',
+        ]
+        );
 
         $department = new Departments;
         $department->dept_code = $request->input('dept_code');
@@ -97,6 +116,15 @@ class CRUDController extends Controller
     }
 
     public function updateDepartment(Request $request, $id){
+
+        //departments from mysql table>child table
+        $request -> validate([
+            'dept_code' => 'required|unique:departments,dept_code',
+            'dept_name' => 'required|unique:departments,dept_name',
+            'dept_email' => 'unique:departments,dept_email',
+        ]
+        );
+
         // SYNTAX
         // $variablename->model fillablename = $request->input('input name in blade file');
         $department = Departments::find($id);
@@ -118,6 +146,16 @@ class CRUDController extends Controller
     }
 
     public function updateEmployee(Request $request, $id){
+
+        $request -> validate([
+            'emp_fname' => 'required',
+            'emp_lname' => 'required',
+            'dept_id' => 'required',
+            'emp_email' => 'email:rfc,dns',
+            'emp_contactNo'=> 'numeric|min:11',
+            'emp_pic' => ['image','mimes:jpg,png,jpeg,gif','max:2048','dimensions:min_width=100,min_height=100,max_width=100,max_height=100'],
+        ]
+        );
 
         // SYNTAX
         // $variablename->model fillablename = $request->input('input name in blade file');
