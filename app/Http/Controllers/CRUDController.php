@@ -18,6 +18,16 @@ class CRUDController extends Controller
         return $this->belongsTo(User::class);
     }
 
+    public function datatablesDepartment(){
+        $department = Departments::all();
+        return View('dataTable_department',compact('department'));
+    }
+
+    public function datatablesEmployee(){
+        $employee = Employees::all();
+        return View('dataTable_employee',compact('employee'));
+    }   
+
     public function addEmployee(){
         $departmentName = Departments::all();
         return View ('add_employee',compact('departmentName'));

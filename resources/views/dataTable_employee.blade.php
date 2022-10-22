@@ -30,19 +30,23 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Department Code</th>
-                        <th>Department Name</th>
-                        <th>Department Contact Number</th>
-                        <th>Department Email</th>
+                        <th>Employee Picture</th>
+                        <th>Employee First Name</th>
+                        <th>Employee Last Name</th>
+                        <th>Department ID</th>  
+                        <th>Employee Contact Number</th>
+                        <th>Employee Email</th>
                     </tr>
                     <tbody>
-                        @foreach($department as $key=> $value)
+                        @foreach($employee as $key=> $value)
                         <tr>
                             <td>{{ $value->id }}</td>
-                            <td>{{ $value->dept_code }}</td>
-                            <td>{{ $value->dept_name }}</td>
-                            <td>{{ $value->dept_contactNo }}</td>
-                            <td>{{ $value->dept_email }}</td>
+                            <td><img src="{{ asset('employees/'.$value->emp_pic) }}" class="img-thumbnail" alt="..."></td>
+                            <td>{{ $value->emp_fname }}</td>
+                            <td>{{ $value->emp_lname }}</td>
+                            <td>{{ $value->dept_id }}</td>
+                            <td>{{ $value->emp_contactNo }}</td>
+                            <td>{{ $value->emp_email }}</td>
                         </tr>
                         @endforeach
                     </tbody>
