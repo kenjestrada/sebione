@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -14,17 +14,17 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged in') }} as {{ Auth::user()->name }}!
                 </div>
             </div>
         </div>
     </div><br>
 
-    <div class="col-lg-3 col-md-3">
+    <!-- <div class="col-lg-3 col-md-3"> -->
               <!-- sidebar -->
-                @include('sidebaradmin')
+                <!-- @include('sidebaradmin') -->
               <!-- sidebar -->
-    </div>
+    <!-- </div> -->
 </div>
 
 
