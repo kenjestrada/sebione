@@ -1,13 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container ">
       <div class="row">
-      <div class="col-lg-3 col-md-3">
+      <!-- <div class="col-lg-3 col-md-3"> -->
               <!-- sidebar -->
-                @include('sidebaradmin')
+                <!-- @include('sidebaradmin') -->
               <!-- sidebar -->
-    </div>
+    <!-- </div> -->
           <div class="col-lg-9 col-md-9">
                 <table class="table table-bordered ">
                     <tr>
