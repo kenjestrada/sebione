@@ -8,42 +8,42 @@
                     <tr>
                         <th>Employee ID</th>
                         <!-- return view controller/model -->
-                        <td>{{  }}</td>
+                        <td>{{ $employee['id'] }}</td>
                     </tr>
                     <tr>
                         <th>Employee Picture</th>
                         <!-- return view controller/model -->
-                        <td><img src="" class="img-thumbnail" alt="..."> {{  }}</td>
+                        <td><img src="{{ asset('employees/'.$employee->emp_pic) }}" class="img-thumbnail" alt="..."> {{ $employee->emp_pic }}</td>
                     </tr>
                     <tr>
                         <th>Employee First Name</th>
                         <!-- return view controller/model -->
-                        <td>{{  }}</td>
+                        <td>{{ $employee['emp_fname'] }}</td>
                     </tr>
                     <tr>
                         <th>Employee Last Name</th>
                         <!-- return view controller/model -->
-                        <td>{{  }}</td>
+                        <td>{{ $employee['emp_lname'] }}</td>
                     </tr>
                     <tr>
                         <th>Department ID</th>
                         <!-- return view controller/model -->
-                        <td>{{  }}</td>
+                        <td>{{ $employee['dept_id'].' - '.$department['dept_name'] }}</td>
                     </tr>
                     <tr>
                         <th>Employee Contact Number</th>
                         <!-- return view controller/model -->
-                        <td>{{  }}</td>
+                        <td>{{ $employee['emp_contactNo'] }}</td>
                     </tr>
                     <tr>
                         <th>Employee Email</th>
                         <!-- return view controller/model -->
-                        <td>{{  }}</td>
+                        <td>{{ $employee['emp_email'] }}</td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                        <a href="" class="btn btn-warning btn-md ">Edit</a>
-                        <a href="" class="btn btn-danger btn-md">Delete</a>
+                        <a href="/edit/employee/{{ $employee['id'] }}" class="btn btn-warning btn-md ">Edit</a>
+                        <a href="/delete/employee/{{ $employee['id'] }}" class="btn btn-danger btn-md">Delete</a>
                         </td>
                     </tr>
                 </table>

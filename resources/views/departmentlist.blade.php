@@ -17,20 +17,21 @@
                     <th scope="col">Delete</th>    
                 </thead>
                 <!-- $departmentList is from UdemyController variable / id,dept_code... is from Department Model -->
-                    @foreach( as $key=> $value)
+                    @foreach($departmentList as $key=> $value)
                     <tr>
-                        <td>{{ $value-> }}</td>
-                        <td>{{ $value-> }}</td>
-                        <td>{{ $value-> }}</td>
-                        <td>{{ $value-> }}</td>
-                        <td>{{ $value-> }}</td>
-                        <td><a href="" class="btn btn-info btn-sm btn-block">Details</a></td>
-                        <td><a href="" class="btn btn-warning btn-sm btn-block">Edit</a></td>
-                        <td><a href="" class="btn btn-danger btn-sm btn-block">Delete</a></td>
+                        <td>{{ $value->id }}</td>
+                        <td>{{ $value->dept_code }}</td>
+                        <td>{{ $value->dept_name }}</td>
+                        <td>{{ $value->dept_contactNo }}</td>
+                        <td>{{ $value->dept_email }}</td>
+                        <td><a href="/view/department/{{ $value['id'] }}" class="btn btn-info btn-sm btn-block">Details</a></td>
+                        <td><a href="/edit/department/{{ $value['id'] }}" class="btn btn-warning btn-sm btn-block">Edit</a></td>
+                        <td><a href="/delete/department/{{ $value['id'] }}" class="btn btn-danger btn-sm btn-block">Delete</a></td>
                     </tr>
                     @endforeach
                 </table>
 
+                {{ $departmentList->links() }}
           </div>
       </div>
     </div>

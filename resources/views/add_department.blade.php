@@ -15,10 +15,10 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Department Code</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="" class="form-control input-sm" placeholder="Enter Department Code: " required>
-                                    @if($errors -> has(''))
+                                    <input type="text" name="dept_code" class="form-control input-sm" placeholder="Enter Department Code: " required>
+                                    @if($errors -> has('dept_code'))
                                     <div class="alert alert-danger" role="alert">
-                                    {{$errors -> first('') }}
+                                    {{$errors -> first('dept_code') }}
                                     </div>
                                     @endif
                                 </div>
@@ -27,10 +27,10 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Department Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="" class="form-control input-sm" placeholder="Enter Department Name: " required>
-                                    @if($errors -> has(''))
+                                    <input type="text" name="dept_name" class="form-control input-sm" placeholder="Enter Department Name: " required>
+                                    @if($errors -> has('dept_name'))
                                     <div class="alert alert-danger" role="alert">
-                                    {{$errors -> first('') }}
+                                    {{$errors -> first('dept_name') }}
                                     </div>
                                     @endif
                                 </div>
@@ -39,17 +39,17 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Department Contact Number</label>
                                 <div class="col-sm-10">
-                                    <input type="number" name="" class="form-control input-sm" placeholder="Enter Department Contact Number: ">
+                                    <input type="number" name="dept_contactNo" class="form-control input-sm" placeholder="Enter Department Contact Number: ">
                                 </div>
                         </div><br>
 
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Department Email</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="" class="form-control input-sm" placeholder="Enter Department Email: ">
-                                    @if($errors -> has(''))
+                                    <input type="text" name="dept_email" class="form-control input-sm" placeholder="Enter Department Email: ">
+                                    @if($errors -> has('dept_email'))
                                     <div class="alert alert-danger" role="alert">
-                                    {{$errors -> first('') }}
+                                    {{$errors -> first('dept_email') }}
                                     </div>
                                     @endif
                                 </div>
