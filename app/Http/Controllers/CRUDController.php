@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Employees;
 use App\Models\Departments;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Mail;
 
 class CRUDController extends Controller
 {
@@ -89,6 +90,13 @@ class CRUDController extends Controller
         $department->dept_contactNo = $request->input('dept_contactNo');
         $department->dept_email = $request->input('dept_email');
         $department->save();
+
+        //MAILTRAP
+        Mail::send('mailtrap.departmentCreated', $department->toArray(),
+        function($message){
+            $message->to('kenjestrada@gmail.com', 'Mini-CRM')
+            ->subject('Department Created Subject');
+        });
 
         Alert::success('Details Successfully Added!', '');
 
