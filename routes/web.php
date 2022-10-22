@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CRUDController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,36 +16,66 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [UdemyController::class,'index']);
-
-//ADD DATA
-Route::post('/create/employee', [UdemyController::class,'createEmployee'])->name('createemployee');
-Route::get('/add/employee', [UdemyController::class,'addEmployee']);
-
-//ADD DATA
-Route::get('/add/department', [UdemyController::class,'addDepartment']);
-Route::post('/create/department', [UdemyController::class,'createDepartment']);
-
-//VIEW ALL DEPARTMENTS / EMPLOYEES
-Route::get('/view/departmentlist', [UdemyController::class,'viewDepartmentList']);
-Route::get('/view/employeelist', [UdemyController::class,'viewEmployeeList']);
-
-//VIEW SINGLE DEPARTMENT/EMPLOYEE
-// href name / UdemyController > Controllers name / viewSingleDepartment -> function name inside the UdemyController
-Route::get('/view/department/{id}', [UdemyController::class,'viewSingleDepartment']);
-Route::get('/view/employee/{dept_id}/{id}', [UdemyController::class,'viewSingleEmployee']);
-
-//UPDATE
-Route::get('/edit/department/{id}', [UdemyController::class,'editDepartment']);
-Route::get('/edit/employee/{id}', [UdemyController::class,'editEmployee']);
-
-Route::post('/update/department/{id}', [UdemyController::class,'updateDepartment']);
-Route::post('/update/employee/{id}', [UdemyController::class,'updateEmployee']);
-
-//DELETE
-Route::get('/delete/department/{id}', [UdemyController::class,'deleteDepartment']);
-Route::get('/delete/employee/{id}', [UdemyController::class,'deleteEmployee']);
+Route::get('/', [CRUDController::class,'index']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+/*------------------------------------------
+--------------------------------------------
+All Normal Users Routes List
+--------------------------------------------
+--------------------------------------------*/
+Route::middleware(['auth', 'user-access:user'])->group(function () {
+  
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+});
+  
+/*------------------------------------------
+--------------------------------------------
+All Admin Routes List
+--------------------------------------------
+--------------------------------------------*/
+Route::middleware(['auth', 'user-access:admin'])->group(function () {
+  
+    Route::get('/admin/home', [HomeController::class, 'adminHome']);
+    //ADD DATA
+    Route::post('/create/employee', [CRUDController::class,'createEmployee'])->name('createemployee');
+    Route::get('/add/employee', [CRUDController::class,'addEmployee']);
+
+    //ADD DATA
+    Route::get('/add/department', [CRUDController::class,'addDepartment']);
+    Route::post('/create/department', [CRUDController::class,'createDepartment']);
+
+    //VIEW ALL DEPARTMENTS / EMPLOYEES
+    Route::get('/view/departmentlist', [CRUDController::class,'viewDepartmentList']);
+    Route::get('/view/employeelist', [CRUDController::class,'viewEmployeeList']);
+
+    //VIEW SINGLE DEPARTMENT/EMPLOYEE
+    // href name / CRUDController > Controllers name / viewSingleDepartment -> function name inside the CRUDController
+    Route::get('/view/department/{id}', [CRUDController::class,'viewSingleDepartment']);
+    Route::get('/view/employee/{dept_id}/{id}', [CRUDController::class,'viewSingleEmployee']);
+
+    //UPDATE
+    Route::get('/edit/department/{id}', [CRUDController::class,'editDepartment']);
+    Route::get('/edit/employee/{id}', [CRUDController::class,'editEmployee']);
+
+    Route::post('/update/department/{id}', [CRUDController::class,'updateDepartment']);
+    Route::post('/update/employee/{id}', [CRUDController::class,'updateEmployee']);
+
+    //DELETE
+    Route::get('/delete/department/{id}', [CRUDController::class,'deleteDepartment']);
+    Route::get('/delete/employee/{id}', [CRUDController::class,'deleteEmployee']);
+});
+  
+/*------------------------------------------
+--------------------------------------------
+All Manager Routes List
+--------------------------------------------
+--------------------------------------------*/
+Route::middleware(['auth', 'user-access:manager'])->group(function () {
+  
+    Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
+});

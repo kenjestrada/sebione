@@ -4,6 +4,12 @@
 <div class="container">
 
       <div class="row">
+
+      <div class="col-lg-3 col-md-3">
+              <!-- sidebar -->
+                @include('sidebaradmin')
+              <!-- sidebar -->
+    </div>
           
           <div class="col-lg-9 col-md-9">
                 <table class="table table-bordered">
