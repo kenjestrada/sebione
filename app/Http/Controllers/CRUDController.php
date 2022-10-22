@@ -116,15 +116,6 @@ class CRUDController extends Controller
     }
 
     public function updateDepartment(Request $request, $id){
-
-        //departments from mysql table>child table
-        $request -> validate([
-            'dept_code' => 'required|unique:departments,dept_code',
-            'dept_name' => 'required|unique:departments,dept_name',
-            'dept_email' => 'unique:departments,dept_email',
-        ]
-        );
-
         // SYNTAX
         // $variablename->model fillablename = $request->input('input name in blade file');
         $department = Departments::find($id);
