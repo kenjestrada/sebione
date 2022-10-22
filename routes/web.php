@@ -40,7 +40,7 @@ All Admin Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
   
-    Route::get('/admin/home', [HomeController::class, 'adminHome']);
+    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
     //ADD DATA
     Route::post('/create/employee', [CRUDController::class,'createEmployee'])->name('createemployee');
     Route::get('/add/employee', [CRUDController::class,'addEmployee']);
