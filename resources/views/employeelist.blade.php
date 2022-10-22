@@ -31,7 +31,8 @@
                     </tr>
                     @endforeach
                 </table>
-
+                
+                <!-- //paginate -->
                 {{ $employeeList->links() }}
           </div>
       </div>

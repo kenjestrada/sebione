@@ -86,12 +86,12 @@ class CRUDController extends Controller
     }
 
     public function viewDepartmentList(){
-        $departmentList = Departments::all();
+        $departmentList = Departments::paginate(10);
         return View ('departmentlist',compact('departmentList'));
     }
 
     public function viewEmployeeList(){
-        $employeeList = Employees::all();
+        $employeeList = Employees::paginate(10);
         return View ('employeelist',compact('employeeList'));
     }
 
@@ -191,7 +191,7 @@ class CRUDController extends Controller
             Alert::success('Deleted Successfully!', '');
         }
         
-        $departmentList = Departments::all();
+        $departmentList = Departments::paginate(10);
      
         return View ('departmentlist',compact('departmentList'));
     }
@@ -204,7 +204,7 @@ class CRUDController extends Controller
             Alert::success('Deleted Successfully!', '');
         }
         
-        $employeeList = Employees::all();
+        $employeeList = Employees::paginate(10);
      
         return View ('employeelist',compact('employeeList'));
     }
