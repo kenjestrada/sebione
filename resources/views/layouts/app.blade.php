@@ -39,6 +39,12 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
+                            <li class="nav-item">
+                                    <a class="nav-link" href="/datatables/department">Departments</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/datatables/employee">Employees</a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>

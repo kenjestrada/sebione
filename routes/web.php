@@ -21,7 +21,8 @@ Route::get('/', [CRUDController::class,'index']);
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/datatables/department', [CRUDController::class,'datatablesDepartment']);
+Route::get('/datatables/employee', [CRUDController::class,'datatablesEmployee']);
 
 /*------------------------------------------
 --------------------------------------------
